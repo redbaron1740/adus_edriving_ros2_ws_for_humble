@@ -1,0 +1,42 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*.tar
+*.tar.gz
+*.zip
+*_backup/
+*_temp_*/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+server.log
+
+#ROS2 (exclude build/, install/, log/)
+build/
+install/
+log/

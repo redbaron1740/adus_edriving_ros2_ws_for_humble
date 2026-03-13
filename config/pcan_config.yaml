@@ -1,0 +1,12 @@
+edrivingkit_pcan_node:
+  ros__parameters:
+    pcan_port: 1                # 1: PCAN_USBBUS1, 2: PCAN_USBBUS2 등
+    pcan_baud: 500000           # 500000: PCAN_BAUD_500K
+    tx_q_size: 10
+    rx_q_size: 20
+    eSteering_sensor_dir: 0             # 0: mounted sensor_dir::Right, 1: mounted sensor_dir::Opposite
+    eBraking_dir: 0                     # 0: release direction: pulled, 1: release direction: pushed
+    eSteering_kp_const: 0.0             # 0: set, 1~50.0: custom
+    eSteering_ki_const: 0.0             # 0: set, 1~10.0: custom
+    eSteering_kd_const: 0.0             # 0: set, 1~10.0: custom
+    eSteering_min_max_limit_angle: 10.0 # -10.0~10.0: custom

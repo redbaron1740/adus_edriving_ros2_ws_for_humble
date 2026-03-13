@@ -1,0 +1,132 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+VAL_TABLE_ cmd_estop_toggle 1 "on" 0 "off" ;
+VAL_TABLE_ fd_manual_auto_switch 1 "switch auto" 0 "switch manual" ;
+VAL_TABLE_ fd_estop_toggle 1 "on" 0 "off" ;
+VAL_TABLE_ fd_vcu_mode 4 "E-stop" 3 "take_over" 2 "auto" 1 "manual" 0 "none" ;
+VAL_TABLE_ fd_vcu_state 2 "abnormal state" 1 "operating state" 0 "initial state" ;
+VAL_TABLE_ cmd_motor_speed_limit 3 "1x" 2 "1/2x" 1 "1/10x" 0 "1/50x" ;
+VAL_TABLE_ cmd_motor_torq_direction 1 "drive" ;
+VAL_TABLE_ cmd_enable_ 1 "auto" 0 "manual" ;
+
+
+BO_ 2147484336 VCU_FEED_STR_DATA2: 8 Vector__XXX
+ SG_ fd_str_str_angle_value : 0|16@1- (0.1,0) [-35536|35535] "" Vector__XXX
+
+BO_ 2254438401 VCU_FEED_STR_DATA1: 8 Vector__XXX
+ SG_ fd_str_enable_ : 0|1@1- (1,0) [0|1] "" Vector__XXX
+
+BO_ 2256535553 UPPER_CMD_STR_DATA: 8 Vector__XXX
+ SG_ cmd_str_reverse : 4|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ cmd_str_angle_value : 8|56@1- (0.1,0) [-5000|5000] "" Vector__XXX
+ SG_ cmd_enable_ : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 2149206272 VCU_FEED_MT_DATA: 8 Vector__XXX
+ SG_ fd_motor_torq_direction : 22|2@1+ (1,0) [0|2] "" Vector__XXX
+ SG_ fd_manual_auto_switch : 24|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ motor_alive_count : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ fd_vcu_state : 1|3@1+ (1,0) [0|2] "" Vector__XXX
+ SG_ fd_motor_torq_value : 8|14@1+ (1,0) [0|3200] "" Vector__XXX
+ SG_ fd_vcu_mode : 4|4@1+ (1,0) [0|4] "" Vector__XXX
+ SG_ fd_estop_toggle : 39|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ fd_enable : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 2149206016 UPPER_CMD_DATA: 8 Vector__XXX
+ SG_ cmd_estop_toggle : 32|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ cmd_motor_speed_limit : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ cmd_motor_torq_value : 8|14@1+ (1,0) [0|3200] "" Vector__XXX
+ SG_ motor_alive_count : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ cmd_motor_torq_direction : 22|2@1+ (1,0) [0|2] "" Vector__XXX
+ SG_ cmd_enable_ : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+
+
+CM_ SG_ 2147484336 fd_str_str_angle_value "-35,536 ~ 35,535 ";
+CM_ SG_ 2256535553 cmd_str_reverse "It is depended on angle sensor's direction.
+You should check the manual in the ADUS' classroom.";
+CM_ SG_ 2256535553 cmd_str_angle_value "[Raw HEX] -5,000 ~ 5,000 degree";
+CM_ SG_ 2149206272 fd_motor_torq_direction "always D gear state
+";
+CM_ SG_ 2149206272 motor_alive_count "Increasing data
+";
+CM_ SG_ 2149206272 fd_motor_torq_value "0~3200(ampere)";
+CM_ SG_ 2149206016 cmd_motor_torq_value "0~3200(ampere)";
+CM_ SG_ 2149206016 motor_alive_count "Increasing data
+";
+CM_ SG_ 2149206016 cmd_motor_torq_direction "always D gear state
+";
+BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
+BA_DEF_ BO_  "CANFD_BRS" ENUM  "0","1";
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "CANoeJitterMax" INT 0 0;
+BA_DEF_ BU_  "CANoeJitterMin" INT 0 0;
+BA_DEF_ BU_  "CANoeDrift" INT 0 0;
+BA_DEF_ BU_  "CANoeStartDelay" INT 0 0;
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","StandardCAN_FD","ExtendedCAN_FD";
+BA_DEF_DEF_  "MultiplexExtEnabled" "No";
+BA_DEF_DEF_  "CANFD_BRS" "1";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "CANoeJitterMax" 0;
+BA_DEF_DEF_  "CANoeJitterMin" 0;
+BA_DEF_DEF_  "CANoeDrift" 0;
+BA_DEF_DEF_  "CANoeStartDelay" 0;
+BA_DEF_DEF_  "VFrameFormat" "StandardCAN";
+BA_ "BusType" "CAN FD";
+BA_ "DBName" "ADUS_eDriving_Kit";
+BA_ "VFrameFormat" BO_ 2147484336 1;
+BA_ "VFrameFormat" BO_ 2254438401 1;
+BA_ "VFrameFormat" BO_ 2256535553 1;
+BA_ "VFrameFormat" BO_ 2149206272 1;
+BA_ "VFrameFormat" BO_ 2149206016 1;
+VAL_ 2254438401 fd_str_enable_ 1 "auto" 0 "manual" ;
+VAL_ 2149206272 fd_motor_torq_direction 1 "drive" ;
+VAL_ 2149206272 fd_manual_auto_switch 1 "switch auto" 0 "switch manual" ;
+VAL_ 2149206272 fd_vcu_state 2 "abnormal state" 1 "operating state" 0 "initial state" ;
+VAL_ 2149206272 fd_vcu_mode 4 "E-stop" 3 "take_over" 2 "auto" 1 "manual" 0 "none" ;
+VAL_ 2149206272 fd_estop_toggle 1 "on" 0 "off" ;
+VAL_ 2149206272 fd_enable 1 "auto" 0 "manual" ;
+VAL_ 2149206016 cmd_estop_toggle 1 "on" 0 "off" ;
+VAL_ 2149206016 cmd_motor_speed_limit 3 "1x" 2 "1/2x" 1 "1/10x" 0 "1/50x" ;
+VAL_ 2149206016 cmd_motor_torq_direction 1 "drive" ;
+VAL_ 2149206016 cmd_enable_ 1 "auto" 0 "manual" ;
+
