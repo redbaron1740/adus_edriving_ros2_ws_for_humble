@@ -5,42 +5,17 @@
 
 ## Revision History
 
- ----------------------------------------------------------
- |                  |  PCAN-Basic 라이브러리 연동           |
- |  Rev. V1.0.0     |  ROS2 humble publisher              |
- |                  |  Subscriber, msgs 생성              |
- |                  |  ROS2 Humble 호환성 확인             |
- ---------------------------------------------------------
- |                  |  pcan-config.yaml 연동              |
- |  Rev. V1.0.1     |  pcan-node, main_program 구현       |         
- |                  |  PID gain 입력 설계                  |
- ---------------------------------------------------------
- |                  |  pcan-node for vcu 구현             |
- |  Rev. V1.1.0     |  실행파일(*.sh) 생성                 |         
- |                  |                                    |
- ---------------------------------------------------------
- |                  |  README.md 생성                     |
- |  Rev. V1.1.1     |                                    |         
- |                  |                                    |
- ---------------------------------------------------------
- |                  |  README.md 수정                     |
- |  Rev. V1.1.2     |  실행파일(*.sh) 수정 - 실행 경로       |         
- |                  |  config/ 경로 수정                   |
- ---------------------------------------------------------
- |                  |  조향각도센서 zero reset 구현          |
- |  Rev. V1.2.2     |  Main_Prog_node.py                  |         
- |                  |  KitCmdMsg.msg 수정                  |
- |                  |  ROS2 Foxy CMakeLists 호환성 문제 체크|
- |                  |  CMakeLists.txt                     |
- |                  |  edrivingkit_pcan_node 노드명을       |
- |                  |  for vcu 노드와 통일함(yaml 파일)      |
- ----------------------------------------------------------
- |                  |  eDriving.speed CAN tx msg 수정      |
- |  Rev. V1.3.2     |  Main_Prog_node.py 에서              |         
- |                  |  SAS reset 변수초기화                 |
- |                  |  eDrving.deactivate 시 speed= 0      |
- ----------------------------------------------------------
+# 프로젝트 변경 이력
 
+| Rev. 버전 | 주요 변경 사항 |
+|-----------|----------------|
+| **V1.0.0** | - PCAN-Basic 라이브러리 연동<br>- ROS2 Humble publisher / subscriber, msgs 생성<br>- ROS2 Humble 호환성 확인 |
+| **V1.0.1** | - pcan-config.yaml 연동<br>- pcan-node, main_program 구현<br>- PID gain 입력 설계 |
+| **V1.1.0** | - pcan-node for VCU 구현<br>- 실행파일 (*.sh) 생성 |
+| **V1.1.1** | - README.md 생성 |
+| **V1.1.2** | - README.md 수정<br>- 실행파일 (*.sh) 실행 경로 수정<br>- config/ 경로 수정 |
+| **V1.2.2** | - 조향각도센서 zero reset 구현<br>- Main_Prog_node.py 수정<br>- KitCmdMsg.msg 수정<br>- ROS2 Foxy CMakeLists 호환성 문제 체크<br>- CMakeLists.txt 수정<br>- edrivingkit_pcan_node 노드명을 for vcu 노드와 통일(yaml 파일) |
+| **V1.3.2** | - eDriving.speed CAN tx msg 수정<br>- Main_Prog_node.py에서 SAS reset 변수 초기화<br>- eDriving.deactivate 시 speed=0 처리 |
 
 
 ## 구성 요소
